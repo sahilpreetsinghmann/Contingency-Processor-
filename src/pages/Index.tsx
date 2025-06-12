@@ -1,43 +1,84 @@
-const Index = () => {
+import { Link } from "react-router-dom";
+import { FileText, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+export default function Index() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
+    <div className="container mx-auto px-4 py-16 max-w-4xl">
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          Fusion Starter
         </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
+        <p className="text-xl text-gray-600 mb-8">
+          A modern, production-ready template for building full-stack React
+          applications
         </p>
+      </div>
+
+      <div className="grid gap-6 md:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <FileText className="h-5 w-5" />
+              Contingency File Processor
+            </CardTitle>
+            <CardDescription>
+              Process Excel modifications and generate updated contingency files
+              with duplicate resolution
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="text-sm text-gray-600">
+                <ul className="space-y-1">
+                  <li>• Upload Excel files with CTG modifications</li>
+                  <li>• Upload base contingency (.con) files</li>
+                  <li>• Resolve duplicate modifications</li>
+                  <li>• Download updated contingency files</li>
+                </ul>
+              </div>
+              <Link to="/contingency-processor">
+                <Button className="w-full">
+                  Open Processor
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Technologies Used</CardTitle>
+            <CardDescription>
+              Modern React stack with TypeScript
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="text-sm text-gray-600">
+              <ul className="space-y-1">
+                <li>• React 18 with TypeScript</li>
+                <li>• React Router for navigation</li>
+                <li>• TailwindCSS for styling</li>
+                <li>• Radix UI components</li>
+                <li>• Vite for development</li>
+                <li>• Vitest for testing</li>
+              </ul>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="mt-12 text-center text-gray-500">
+        <p>Built with ❤️ using the Fusion Starter template</p>
       </div>
     </div>
   );
-};
-
-export default Index;
+}
